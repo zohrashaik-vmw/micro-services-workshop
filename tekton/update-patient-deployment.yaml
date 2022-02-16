@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: update-deployment-image-taskrun
+spec:
+  taskRef:
+    name: kubernetes-actions
+    namespace: development
+  workspaces:
+  - name: kubeconfig-dir
+    configMap:
+      name: kubeconfig
+  params:
+    - name: script
+      value: |
+        kubectl patch deployment patient-deployment --patch='{"spec":{"template":{"spec":{
+          "containers":[{
+            "name": "patient-deployment",
+            "image": "harbor-repo.vmware.com/livewell/patient:latest"
+            }]
+        }}}}'

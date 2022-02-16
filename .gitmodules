@@ -1,0 +1,15 @@
+[submodule "encoutner"]
+	path = encoutner
+	url = https://github.com/zohrashaik-vmw/se-microservices-workshop
+[submodule "encounter"]
+	path = encounter
+	url = https://github.com/zohrashaik-vmw/micro-services-workshop.git
+[submodule "patient"]
+	path = patient
+	url = https://github.com/zohrashaik-vmw/micro-services-workshop.git
+[submodule "gateway"]
+	path = gateway
+	url = https://github.com/zohrashaik-vmw/micro-services-workshop.git
+[submodule "practitioner"]
+	path = practitioner
+	url = https://github.com/zohrashaik-vmw/micro-services-workshop.git

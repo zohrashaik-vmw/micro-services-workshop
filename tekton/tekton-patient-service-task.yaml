@@ -1,0 +1,15 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: patient-service-task
+spec:
+  taskRef:
+    name: kubernetes-actions
+  workspaces:
+    - name: kubeconfig-dir
+      configMap:
+        name: kubeconfig
+  params:
+    - name: script
+      value: |
+        kubectl apply -f https://raw.githubusercontent.com/zohrashaik-vmw/yaml/main/patient-service.yaml

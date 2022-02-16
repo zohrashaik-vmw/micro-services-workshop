@@ -1,0 +1,31 @@
+apiVersion: sql.tanzu.vmware.com/v1
+kind: Postgres
+metadata:
+  name: encounter-db
+  namespace: development
+spec:
+  storageSize: 1Gi
+  storageClassName: pacific-gold-storage-policy
+  storageSize: 800M
+  cpu: "0.8"
+  memory: 800Mi
+  monitorStorageClassName: pacific-gold-storage-policy
+  monitorStorageSize: 1G
+  resources:
+    monitor:
+      limits:
+        cpu: 800m
+        memory: 800Mi
+      requests:
+        cpu: 800m
+        memory: 800Mi
+  pgConfig:
+    dbname: encounter
+    username: devuser
+  serviceType: ClusterIP
+#  highAvailability:
+#    enabled: true
+#  logLevel: Debug
+#  backupLocationSecret:
+#    name: s3-secret-example
+#  certificateSecretName:
